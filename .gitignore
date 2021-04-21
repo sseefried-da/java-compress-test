@@ -1,0 +1,5 @@
+heap-dumps/
+test.tar.gz
+test.zip
+.gradle/
+build/
