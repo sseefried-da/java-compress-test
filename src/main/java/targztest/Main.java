@@ -52,7 +52,8 @@ public class Main {
       TarArchiveEntry tarEntry = new TarArchiveEntry(new File(filePath), filePath);
       tarEntry.setSize(reallyBigString.length());
       output.putArchiveEntry(tarEntry);
-      IOUtils.copy(new ByteArrayInputStream(reallyBigString.getBytes()), output);
+      byte[] bytes = reallyBigString.getBytes();
+      output.write(bytes, 0, bytes.length);
       output.closeArchiveEntry();
       if ((i + 1) % PROGRESS_AT == 0 ) {
         System.out.print("*");
